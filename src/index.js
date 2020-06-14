@@ -2,6 +2,10 @@ import './style.css';
 import Icon from './icon.png';
 import printMe from './print.js';
 
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!');
+}
+
 function component() {
   const element = document.createElement('div');
   const myIcon = new Image();
@@ -22,8 +26,7 @@ function component() {
   return element;
 }
 
-// document.body.appendChild(component());
-let element = component(); // Store the element to re-render on print.js changes
+let element = component();
 document.body.appendChild(element);
 
 if (module.hot) {
