@@ -1,18 +1,25 @@
 import './style.css';
 import Icon from './icon.png';
+import printMe from './print.js';
 
-const element = document.createElement('div');
+function component() {
+  const element = document.createElement('div');
+  const myIcon = new Image();
+  const btn = document.createElement('button');
 
-element.innerText = 'Hello world!';
+  element.innerText = 'Hello world!';
+  element.classList.add('hello');
 
-document.body.appendChild(element);
+  myIcon.src = Icon;
 
-element.classList.add('hello');
+  element.appendChild(myIcon);
+  myIcon.classList.add('icon');
 
-const myIcon = new Image();
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
+  element.appendChild(btn);
 
-myIcon.src = Icon;
+  return element;
+}
 
-element.appendChild(myIcon);
-
-myIcon.classList.add('icon');
+document.body.appendChild(component());
